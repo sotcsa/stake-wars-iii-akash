@@ -1,30 +1,28 @@
 #!/bin/bash
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-(echo ${my_root_password}; echo ${my_root_password}) | passwd root
-service ssh restart
+
+mkdir -p /root/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCglte7ideOE59vppZojxTY1cRozzZ7aq0GieywCmt/WuLra+p3mKsPq6YTuwBXNugI0XR0X/yWut8BoXK/64YQSH2BO1i+7A0RbA3rROusG7xRSfREb/Of7hhdRZSq/dSbngDju+zG1B17i2vZUk1APsqCU49Yf+DY/ADcDw81wSTz7YjpOZOlDzOlntU5dFgqAwbquqcf6Yt66MOhrOE3cjjUFjG3nf7nuYvVUEvzwVkAyNGusbs5DoKjF9GbbJDIq8CL7v77f95DlT5+s4qMjHoppevqD5AkqLv9vTcAPbBohgnAWOakEMD5HiU1hfHf7V4wjgdnCfTI8QmNoXQJ sotcsa@MacBook" >> .ssh/authorized_keys
+
+runsvdir -P /etc/service &
+nodepid=0
+t=1
+# sleep 5
+# if [[ -e ~/.near/validator_key.json ]]
+# then
+# 	while [[ "$t" -eq 1 ]]
+# 	do
+# 		SYNH
+# 		date
+# 		sleep 5m
+# 	done
+# fi
 
 echo  "=================== END OF SCRIPT, LET'S CONTINUE MANUAL VIA SSH ==================="
-echo "Dont continue, for debugging purpose only..."
 while [[ "$t" -eq 1 ]]
 do
 date
 sleep 5m
 done
-
-
-runsvdir -P /etc/service &
-nodepid=0
-t=1
-sleep 5
-if [[ -e ~/.near/validator_key.json ]]
-then
-	while [[ "$t" -eq 1 ]]
-	do
-		SYNH
-		date
-		sleep 5m
-	done
-fi
 
 apt update && apt upgrade -y
 apt install sudo nano -y
