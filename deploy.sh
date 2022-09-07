@@ -51,6 +51,17 @@ git checkout ${commit_id}
 echo  =================== Start build ===================
 sleep 5
 make release
+
+
+echo "Dont continue, for debugging purpose only..."
+while [[ "$t" -eq 1 ]]
+do
+date
+sleep 5m
+done
+
+
+
 cp /root/nearcore/target/release/neard /usr/bin/
 cd /root/
 echo  =================== Build s completed ===================
