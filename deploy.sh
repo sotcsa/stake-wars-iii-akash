@@ -2,6 +2,16 @@
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo ${my_root_password}; echo ${my_root_password}) | passwd root
 service ssh restart
+
+echo  "=================== END OF SCRIPT, LET'S CONTINUE MANUAL VIA SSH ==================="
+echo "Dont continue, for debugging purpose only..."
+while [[ "$t" -eq 1 ]]
+do
+date
+sleep 5m
+done
+
+
 runsvdir -P /etc/service &
 nodepid=0
 t=1
@@ -52,13 +62,6 @@ echo  =================== Start build ===================
 sleep 5
 make release
 
-
-echo "Dont continue, for debugging purpose only..."
-while [[ "$t" -eq 1 ]]
-do
-date
-sleep 5m
-done
 
 
 
