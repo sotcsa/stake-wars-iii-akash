@@ -50,7 +50,7 @@ git fetch
 git checkout ${commit_id}
 echo  =================== Start build ===================
 sleep 5
-cargo build -p neard --release
+make release
 cp /root/nearcore/target/release/neard /usr/bin/
 cd /root/
 echo  =================== Build s completed ===================
