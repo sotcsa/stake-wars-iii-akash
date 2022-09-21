@@ -16,8 +16,8 @@ echo  ===================near  ===================
 
 
 cd /root/
-echo  =================== Build s completed ===================
-neard init --chain-id testnet --download-genesis
+#neard init --chain-id testnet --download-genesis
+neard init --chain-id testnet
 ls /root/ -a 
 ls /root/.near -a 
 ls / -a 
